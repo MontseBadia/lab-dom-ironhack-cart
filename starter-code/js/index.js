@@ -1,5 +1,8 @@
-function deleteItem(e){
-
+function deleteItem(){
+  var deletedCon = document.getElementsByClassName("container");
+  for (var x=0; x<deletedCon.length; x++) {
+    deletedCon[x].classList.remove("container");
+  }
 }
 
 function getPriceByProduct(itemNode){
@@ -28,11 +31,11 @@ function updatePriceByProduct(){
   arrQuantity.forEach(function(item, index){
     var totalPrices = getTotalPrice(item, index, arrPrice)
     sum += totalPrices;
-    arrPriceTotal[index].innerText = "$" + totalPrices.toString();
+    arrPriceTotal[index].innerText = "$" + totalPrices.toFixed(2);
   });
 
   var finalTotalPrices = document.getElementById("final-total-price"); //no .textContent at the end
-  finalTotalPrices.innerText = sum;
+  finalTotalPrices.innerText = sum.toFixed(2);
 
 }
 
@@ -90,7 +93,7 @@ function main () {
 
   var deleteButtons = document.getElementsByClassName('btn-delete');
   for(var i=0; i<deleteButtons.length; i++){
-    deleteButtons.addEventListener("click", deleteItem)
+    deleteButtons[i].addEventListener("click", deleteItem)
   };
 
 }

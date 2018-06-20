@@ -1,5 +1,9 @@
 /* --- layout --- */
 
+.hide {
+  display: none;
+}
+
 body .container {
   display: flex;
   align-items: center;
